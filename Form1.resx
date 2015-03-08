@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtBoxOrign.Text" xml:space="preserve">
+    <value>第1章 免疫学概述
+
+[1] 免疫的概念
+机体识别
+和排除抗原物质
+，维持自身平衡
+与稳定的一种生理功能。
+[2] 免疫的三大功能
+①免疫防御；
+②免疫稳定；
+③免疫监视
+[3] 免疫对机体具有双重性
+即功能正常时其结果对机体有利，功能异常时其结果对机体有害。
+[4] 牛痘苗的发明者？预防的疾病种类
+英国乡村医生Jenner（琴纳）
+，防治天花
+。预防天花。
+
+第2章 抗原
+
+[1]抗原的概念
+是一类能够刺激机体的免疫系统产生抗体或效应淋巴细胞，并能与之发生特异性结合的物质。
+[2]抗原的两个基本性能
+免疫原性；免疫反应性（又称抗原性）。
+[3]免疫学中的异物
+免疫学中的异物是指在胚胎期从未与机体的免疫细胞接触过的物质。
+[4] 决定抗原特异性的结构基础
+决定抗原特异性的结构基础是抗原分子上的抗原决定基。
+[5] 共同抗原的概念
+两种不同的抗原分子之间存在着相同或相似的抗原决定基，称为共同抗原。
+[6] 动物免疫血清对人体两方面的作用
+一方面可为机体提供特异性抗体（抗毒素），有中和相应外毒素的作用，另一方面作为异种蛋白质，对人来说又是抗原，具有很强的免疫原性，可引起Ⅰ型超敏反应。
+[7] 异嗜抗原的概念的概念
+存在于不同种属生物（人、动物、微生物）之间的共同抗原，称为异嗜性抗原
+[8] 早期发现和诊断原发性肝癌的免疫学指标
+甲胎蛋白（AFP）
+是早期发现和诊断原发性肝癌的标记物</value>
+  </data>
+  <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="txtBoxTest1Answer.Text" xml:space="preserve">
+    <value>1．B	2．E	3．C	4．B	5．D	6．B	7．C	8．A	9．D	10．D
+11．E	12．C	13．A	14．B	15．A	16．A	17．B	18．D	19．C	20．C
+21．B	22．C	23．A	24．C	25．A	26．D	27．C	28．C	29．A	30．B
+31．B	32．B	33．C	34．D	35．D	36．E	37．B	38．C	39．C	40．C
+41．D	42．B	43．E	44．B	45．E	46．E	47．E	48．C	49．D	50．E
+51．E	52．A	53．B	54．B	55．E	56．D	57．D	58．B	59．B	60．D
+61．C	62．D	63．E	64．B	65．B	66．B	67．B	68．A	69．A	70．C
+71．C	72．A	73．D	74．C	75．C	76．E	77．B	78．E	79．B	80．C
+81．C	82．B	83．B	84．E	85．E	86．A	87．A	88．A	89．A	90．A
+91．E	92．C	93．D	94．C	95．D	96．C	97．B	98．B	99．E	100．C
+101．B	102．A	103．D	104．C	105．A	106．E	107．A	108．C	109．C	110．B
+111．E	112．B	113．A	114．E	115．A	116．C	117．C	118．A	119．B	120．A
+121．E	122．D	123．A	124．C	125．C	126．A	127．D	128．D	129．C	130．B
+131．B	132．B	133．A	134．C	135．E	136．A				</value>
+  </data>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+</root>
