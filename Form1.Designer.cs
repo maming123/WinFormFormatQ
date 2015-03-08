@@ -60,7 +60,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.txtBoxTest1Result = new System.Windows.Forms.RichTextBox();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
@@ -72,8 +71,10 @@
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.button14 = new System.Windows.Forms.Button();
             this.txtBoxTest1Answer = new System.Windows.Forms.RichTextBox();
+            this.button14 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,6 +101,7 @@
             this.splitContainer6.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.splitContainer7.Panel1.SuspendLayout();
+            this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -378,7 +380,7 @@
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // 
+            // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.txtBoxTest1);
             this.splitContainer2.Panel1.Controls.Add(this.button8);
@@ -445,12 +447,8 @@
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(213, 369);
             this.richTextBox4.TabIndex = 13;
-            this.richTextBox4.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、\n5、选择文件\n6、开始处理1\n7、" +
-    "开始处理2\n8、校验\n\n";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.richTextBox4.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、把 第一部分和第二部分 分别存入2个" +
+    "txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n8、校验\n\n";
             // 
             // tabPage5
             // 
@@ -553,8 +551,9 @@
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(230, 369);
             this.richTextBox5.TabIndex = 14;
-            this.richTextBox5.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、\n5、选择文件\n6、开始处理1\n7、" +
-    "开始处理2\n8、校验\n\n";
+            this.richTextBox5.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、把 第一部分和第二部分 分别存入2个" +
+    "txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n8、校验\n\n\n" +
+    "";
             // 
             // tabPage6
             // 
@@ -576,9 +575,21 @@
             // 
             this.splitContainer7.Panel1.Controls.Add(this.txtBoxTest1Answer);
             this.splitContainer7.Panel1.Controls.Add(this.button14);
+            // 
+            // splitContainer7.Panel2
+            // 
+            this.splitContainer7.Panel2.Controls.Add(this.richTextBox3);
             this.splitContainer7.Size = new System.Drawing.Size(783, 369);
             this.splitContainer7.SplitterDistance = 471;
             this.splitContainer7.TabIndex = 0;
+            // 
+            // txtBoxTest1Answer
+            // 
+            this.txtBoxTest1Answer.Location = new System.Drawing.Point(8, 57);
+            this.txtBoxTest1Answer.Name = "txtBoxTest1Answer";
+            this.txtBoxTest1Answer.Size = new System.Drawing.Size(437, 292);
+            this.txtBoxTest1Answer.TabIndex = 1;
+            this.txtBoxTest1Answer.Text = resources.GetString("txtBoxTest1Answer.Text");
             // 
             // button14
             // 
@@ -590,13 +601,19 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // txtBoxTest1Answer
+            // openFileDialog1
             // 
-            this.txtBoxTest1Answer.Location = new System.Drawing.Point(8, 57);
-            this.txtBoxTest1Answer.Name = "txtBoxTest1Answer";
-            this.txtBoxTest1Answer.Size = new System.Drawing.Size(437, 292);
-            this.txtBoxTest1Answer.TabIndex = 1;
-            this.txtBoxTest1Answer.Text = resources.GetString("txtBoxTest1Answer.Text");
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox3.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(308, 369);
+            this.richTextBox3.TabIndex = 15;
+            this.richTextBox3.Text = "先期处理说明：\n1、word中对应的答案复制到txt中，\n2、再把txt中的答案 复制到文本框\n3、执行替换答案按钮\n4、把生成的结果 添加到 \n试卷一（处理摘出" +
+    "的题干）中对应的xml中\n\n\n";
             // 
             // Form1
             // 
@@ -637,6 +654,7 @@
             this.splitContainer6.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.splitContainer7.Panel1.ResumeLayout(false);
+            this.splitContainer7.Panel2.ResumeLayout(false);
             this.splitContainer7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -689,6 +707,7 @@
         private System.Windows.Forms.SplitContainer splitContainer7;
         private System.Windows.Forms.RichTextBox txtBoxTest1Answer;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.RichTextBox richTextBox3;
     }
 }
 
