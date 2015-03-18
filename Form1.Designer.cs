@@ -73,8 +73,8 @@
             this.splitContainer7 = new System.Windows.Forms.SplitContainer();
             this.txtBoxTest1Answer = new System.Windows.Forms.RichTextBox();
             this.button14 = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -107,9 +107,9 @@
             // 
             // txtBoxOrign
             // 
-            this.txtBoxOrign.Location = new System.Drawing.Point(8, 30);
+            this.txtBoxOrign.Location = new System.Drawing.Point(8, 45);
             this.txtBoxOrign.Name = "txtBoxOrign";
-            this.txtBoxOrign.Size = new System.Drawing.Size(308, 331);
+            this.txtBoxOrign.Size = new System.Drawing.Size(308, 316);
             this.txtBoxOrign.TabIndex = 0;
             this.txtBoxOrign.Text = resources.GetString("txtBoxOrign.Text");
             // 
@@ -118,9 +118,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.Size = new System.Drawing.Size(191, 12);
             this.label1.TabIndex = 1;
-            this.label1.Text = "原始文本";
+            this.label1.Text = "原始文本，替换\"为“ <>替换 ＜＞";
             // 
             // txtBoxC1
             // 
@@ -193,8 +193,8 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(193, 363);
             this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、删除掉答案\n3、替换其中的所有\"为“\n4、替换 .为.\n5、选择文件\n6、开始处理1\n7、开始" +
-    "处理2\n8、校验\n\n";
+            this.richTextBox1.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、删除掉答案\n3、替换其中的所有\"为“,<>替换 ＜＞\n4、替换 .为.\n5、选择文件\n6、开始" +
+    "处理1\n7、开始处理2\n8、校验\n\n";
             // 
             // button4
             // 
@@ -342,8 +342,8 @@
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(198, 369);
             this.richTextBox2.TabIndex = 12;
-            this.richTextBox2.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、\n5、选择文件\n6、开始处理1\n7、" +
-    "开始处理2\n8、校验\n\n";
+            this.richTextBox2.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、<>替换 ＜＞\n5、选择文件\n6、开" +
+    "始处理1\n7、开始处理2\n8、校验\n\n";
             // 
             // tabPage4
             // 
@@ -447,8 +447,9 @@
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(213, 369);
             this.richTextBox4.TabIndex = 13;
-            this.richTextBox4.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、把 第一部分和第二部分 分别存入2个" +
-    "txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n8、校验\n\n";
+            this.richTextBox4.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“<>替换 ＜＞\n4、把 第一部分和第二部分" +
+    " 分别存入2个txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n" +
+    "8、校验\n\n";
             // 
             // tabPage5
             // 
@@ -551,9 +552,9 @@
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(230, 369);
             this.richTextBox5.TabIndex = 14;
-            this.richTextBox5.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、把 第一部分和第二部分 分别存入2个" +
-    "txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n8、校验\n\n\n" +
-    "";
+            this.richTextBox5.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“<>替换 ＜＞\n4、把 第一部分和第二部分" +
+    " 分别存入2个txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n" +
+    "8、校验\n\n\n";
             // 
             // tabPage6
             // 
@@ -601,10 +602,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // richTextBox3
             // 
             this.richTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -614,6 +611,10 @@
             this.richTextBox3.TabIndex = 15;
             this.richTextBox3.Text = "先期处理说明：\n1、word中对应的答案复制到txt中，\n2、再把txt中的答案 复制到文本框\n3、执行替换答案按钮\n4、把生成的结果 添加到 \n试卷一（处理摘出" +
     "的题干）中对应的xml中\n\n\n";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 

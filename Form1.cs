@@ -164,14 +164,25 @@ namespace WinFormFormatQ
                 while (sr.Peek() > -1)
                 {
                     string str = sr.ReadLine().Trim();
-                    //if (str.Contains("103.4kPa"))
+                    if (!string.IsNullOrEmpty(str) && "ABCDEFGHIＡＢＣＤＥＦＧＨＩ".Contains(str.Substring(0,1)))
                     {
+                        str = str.Insert(1, ".");
+                    }
+                    if (!string.IsNullOrEmpty(str) && Regex.IsMatch(str, @"^[\d]+", RegexOptions.Singleline))
+                    {
+                       string s= Regex.Match(str, @"^[\d]+").Value;
+                       str = str.Insert(s.Length, ".");
                     }
                     //[第\d章]
                     if (Regex.IsMatch(str, @"第[\d]+章", RegexOptions.Singleline))
                     {
+                        if (!string.IsNullOrEmpty(strQ))
+                        {
+                            listOrig.Add(strQ);
+                        }
                         listOrig.Add("$ZJ$" + str);
                         strQ = "";
+                        
                     }
 
                     if (Regex.IsMatch(str, @"^[\d]+[．.]", RegexOptions.Singleline))
