@@ -36,6 +36,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.txtBoxSelectResult = new System.Windows.Forms.RichTextBox();
@@ -51,6 +52,14 @@
             this.button6 = new System.Windows.Forms.Button();
             this.txtBoxQResult = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.richTextBox7 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -63,6 +72,8 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
             this.txtBoxTest1TiGan = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -85,6 +96,13 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.Panel2.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
+            this.splitContainer9.Panel1.SuspendLayout();
+            this.splitContainer9.Panel2.SuspendLayout();
+            this.splitContainer9.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -146,6 +164,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
@@ -172,6 +191,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.txtBoxSelectResult);
@@ -185,6 +205,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "选择题";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(263, 45);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(168, 16);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "题目和答案有点（1.  A.）";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // richTextBox1
             // 
@@ -208,9 +240,9 @@
             // 
             // txtBoxSelectResult
             // 
-            this.txtBoxSelectResult.Location = new System.Drawing.Point(6, 37);
+            this.txtBoxSelectResult.Location = new System.Drawing.Point(6, 67);
             this.txtBoxSelectResult.Name = "txtBoxSelectResult";
-            this.txtBoxSelectResult.Size = new System.Drawing.Size(575, 326);
+            this.txtBoxSelectResult.Size = new System.Drawing.Size(575, 296);
             this.txtBoxSelectResult.TabIndex = 3;
             this.txtBoxSelectResult.Text = "";
             // 
@@ -345,6 +377,99 @@
             this.richTextBox2.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、<>替换 ＜＞\n5、选择文件\n6、开" +
     "始处理1\n7、开始处理2\n8、校验\n\n";
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.splitContainer8);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(783, 369);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "问答题整理一";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.splitContainer9);
+            // 
+            // splitContainer8.Panel2
+            // 
+            this.splitContainer8.Panel2.Controls.Add(this.richTextBox6);
+            this.splitContainer8.Size = new System.Drawing.Size(783, 369);
+            this.splitContainer8.SplitterDistance = 520;
+            this.splitContainer8.TabIndex = 0;
+            // 
+            // splitContainer9
+            // 
+            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer9.Name = "splitContainer9";
+            this.splitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer9.Panel1
+            // 
+            this.splitContainer9.Panel1.Controls.Add(this.textBox3);
+            this.splitContainer9.Panel1.Controls.Add(this.button16);
+            this.splitContainer9.Panel1.Controls.Add(this.button17);
+            // 
+            // splitContainer9.Panel2
+            // 
+            this.splitContainer9.Panel2.Controls.Add(this.richTextBox7);
+            this.splitContainer9.Size = new System.Drawing.Size(520, 369);
+            this.splitContainer9.SplitterDistance = 65;
+            this.splitContainer9.TabIndex = 0;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(21, 15);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(216, 21);
+            this.textBox3.TabIndex = 13;
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(243, 13);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(106, 23);
+            this.button16.TabIndex = 12;
+            this.button16.Text = "选择问答题文件";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(355, 13);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(83, 23);
+            this.button17.TabIndex = 14;
+            this.button17.Text = "开始处理1";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // richTextBox7
+            // 
+            this.richTextBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox7.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox7.Name = "richTextBox7";
+            this.richTextBox7.Size = new System.Drawing.Size(520, 300);
+            this.richTextBox7.TabIndex = 11;
+            this.richTextBox7.Text = "";
+            // 
+            // richTextBox6
+            // 
+            this.richTextBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox6.Location = new System.Drawing.Point(0, 0);
+            this.richTextBox6.Name = "richTextBox6";
+            this.richTextBox6.Size = new System.Drawing.Size(259, 369);
+            this.richTextBox6.TabIndex = 13;
+            this.richTextBox6.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、<>替换 ＜＞\n5、选择文件\n6、开" +
+    "始处理1\n7、开始处理2\n8、校验\n整理成 问题在一起   答案在一起的形式\nstr.Contains(\"答案\") 分散的答案 必须存在答案二字";
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.splitContainer1);
@@ -398,7 +523,7 @@
             // 
             this.txtBoxTest1.Location = new System.Drawing.Point(8, 22);
             this.txtBoxTest1.Name = "txtBoxTest1";
-            this.txtBoxTest1.Size = new System.Drawing.Size(219, 21);
+            this.txtBoxTest1.Size = new System.Drawing.Size(197, 21);
             this.txtBoxTest1.TabIndex = 13;
             // 
             // button8
@@ -413,11 +538,11 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(238, 22);
+            this.button9.Location = new System.Drawing.Point(211, 22);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(107, 23);
+            this.button9.Size = new System.Drawing.Size(134, 23);
             this.button9.TabIndex = 12;
-            this.button9.Text = "选择问答题文件";
+            this.button9.Text = "选择去除题干试卷文件";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -487,6 +612,8 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.button19);
+            this.splitContainer6.Panel1.Controls.Add(this.button18);
             this.splitContainer6.Panel1.Controls.Add(this.txtBoxTest1TiGan);
             this.splitContainer6.Panel1.Controls.Add(this.button11);
             this.splitContainer6.Panel1.Controls.Add(this.button12);
@@ -496,14 +623,34 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.txtBoxTest1TiGanResult);
             this.splitContainer6.Size = new System.Drawing.Size(549, 369);
-            this.splitContainer6.SplitterDistance = 60;
+            this.splitContainer6.SplitterDistance = 88;
             this.splitContainer6.TabIndex = 0;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(426, 49);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(96, 23);
+            this.button19.TabIndex = 21;
+            this.button19.Text = "插入后排序";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(315, 49);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(105, 23);
+            this.button18.TabIndex = 20;
+            this.button18.Text = "插入选择题一中";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // txtBoxTest1TiGan
             // 
-            this.txtBoxTest1TiGan.Location = new System.Drawing.Point(22, 21);
+            this.txtBoxTest1TiGan.Location = new System.Drawing.Point(8, 21);
             this.txtBoxTest1TiGan.Name = "txtBoxTest1TiGan";
-            this.txtBoxTest1TiGan.Size = new System.Drawing.Size(173, 21);
+            this.txtBoxTest1TiGan.Size = new System.Drawing.Size(170, 21);
             this.txtBoxTest1TiGan.TabIndex = 17;
             // 
             // button11
@@ -518,11 +665,11 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(202, 20);
+            this.button12.Location = new System.Drawing.Point(184, 20);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(107, 23);
+            this.button12.Size = new System.Drawing.Size(125, 23);
             this.button12.TabIndex = 16;
-            this.button12.Text = "选择问答题文件";
+            this.button12.Text = "选择摘出的题干文件";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
@@ -541,7 +688,7 @@
             this.txtBoxTest1TiGanResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtBoxTest1TiGanResult.Location = new System.Drawing.Point(0, 0);
             this.txtBoxTest1TiGanResult.Name = "txtBoxTest1TiGanResult";
-            this.txtBoxTest1TiGanResult.Size = new System.Drawing.Size(549, 305);
+            this.txtBoxTest1TiGanResult.Size = new System.Drawing.Size(549, 277);
             this.txtBoxTest1TiGanResult.TabIndex = 12;
             this.txtBoxTest1TiGanResult.Text = "";
             // 
@@ -552,9 +699,7 @@
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(230, 369);
             this.richTextBox5.TabIndex = 14;
-            this.richTextBox5.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“<>替换 ＜＞\n4、把 第一部分和第二部分" +
-    " 分别存入2个txt\n5、再把txt中的题干题目放入新的txt，并将新txt中\n的共用题干整理成 题目编号.题干\n5、选择文件\n6、开始处理1\n7、开始处理2\n" +
-    "8、校验\n\n\n";
+            this.richTextBox5.Text = resources.GetString("richTextBox5.Text");
             // 
             // tabPage6
             // 
@@ -637,6 +782,14 @@
             this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            this.splitContainer8.Panel2.ResumeLayout(false);
+            this.splitContainer8.ResumeLayout(false);
+            this.splitContainer9.Panel1.ResumeLayout(false);
+            this.splitContainer9.Panel1.PerformLayout();
+            this.splitContainer9.Panel2.ResumeLayout(false);
+            this.splitContainer9.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -709,6 +862,17 @@
         private System.Windows.Forms.RichTextBox txtBoxTest1Answer;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.SplitContainer splitContainer8;
+        private System.Windows.Forms.SplitContainer splitContainer9;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.RichTextBox richTextBox7;
+        private System.Windows.Forms.RichTextBox richTextBox6;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button19;
     }
 }
 

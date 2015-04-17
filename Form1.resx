@@ -159,6 +159,29 @@
   <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="richTextBox5.Text" xml:space="preserve">
+    <value>先期处理说明：
+1、word存为unicode类型的txt文本
+2、使每个问题和答案都另起一行
+3、替换其中的所有"为“&lt;&gt;替换 ＜＞
+4、把 第一部分和第二部分 分别存入2个txt
+5、再把txt中的题干题目放入新的txt，并将新txt中
+的共用题干整理成 题目编号.题干
+5、选择文件
+6、开始处理1
+7、开始处理2
+8、校验
+----------------------
+1、插入选择题一中 这个按钮 是针对选择题有公用题干的情况，（去除题干的选择题目必须前面添加序号章号+节号+10）
+如遇到这种情况 正常执行选择题生成不需要去除题干信息（系统自动会过滤），然后点选择摘出的题干
+
+2、插入后排序：适用 选择题 带节点的情况 把一章中的各节点序号顺次相加
+
+</value>
+  </data>
   <data name="txtBoxTest1Answer.Text" xml:space="preserve">
     <value>1．B	2．E	3．C	4．B	5．D	6．B	7．C	8．A	9．D	10．D
 11．E	12．C	13．A	14．B	15．A	16．A	17．B	18．D	19．C	20．C
