@@ -630,19 +630,19 @@
             // 
             this.button19.Location = new System.Drawing.Point(426, 49);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(96, 23);
+            this.button19.Size = new System.Drawing.Size(115, 23);
             this.button19.TabIndex = 21;
-            this.button19.Text = "插入后排序";
+            this.button19.Text = "3、插入后排序";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(315, 49);
+            this.button18.Location = new System.Drawing.Point(290, 49);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(105, 23);
+            this.button18.Size = new System.Drawing.Size(130, 23);
             this.button18.TabIndex = 20;
-            this.button18.Text = "插入选择题一中";
+            this.button18.Text = "2、插入选择题一中";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
@@ -655,7 +655,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(397, 20);
+            this.button11.Location = new System.Drawing.Point(426, 21);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(91, 23);
             this.button11.TabIndex = 19;
@@ -677,9 +677,9 @@
             // 
             this.button13.Location = new System.Drawing.Point(315, 20);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(76, 23);
+            this.button13.Size = new System.Drawing.Size(105, 23);
             this.button13.TabIndex = 18;
-            this.button13.Text = "开始处理1";
+            this.button13.Text = "1、开始处理1";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 

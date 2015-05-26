@@ -239,7 +239,7 @@ namespace WinFormFormatQ
                 { //每章
                     //<question name = "3．免疫对机体是（ ）" opa = "A．有害的" opb = "B．有利的" opc = "C．有利也有害" opd = "D．有利无害" ope = "E．正常条件下有利，异常条件下有害" />
                     string strtmp = arrZhang[timuNum].Replace("$TAB$A．", "\" opa = \"A．").Replace("$TAB$B．", "\" opb = \"B．").Replace("$TAB$C．", "\" opc = \"C．").Replace("$TAB$D．", "\" opd = \"D．").Replace("$TAB$E．", "\" ope = \"E．").Replace("$TAB$F．", "\" opf = \"F．").Replace("$TAB$G．", "\" opg = \"G．").Replace("$TAB$H．", "\" oph = \"H．").Replace("$TAB$I．", "\" opi = \"I．");
-                    sb.AppendFormat(@"<question name = ""{0}""/>", strtmp);
+                    sb.AppendFormat(@"<question  type=""A1"" name = ""{0}""/>", strtmp);
                 }
                 sb.AppendFormat(@"</testType>");
                 sb.AppendFormat(@"</sectionTitle>");
@@ -573,7 +573,7 @@ namespace WinFormFormatQ
                     string strName = nodeList[nodeNum].Attributes["name"].InnerText.Trim();
                     if (Regex.IsMatch(strName, string.Format(@"^({0})[．.]", tiganNum), RegexOptions.Singleline))
                     {
-                        //nodeList[nodeNum].Attributes["type"].InnerText = "A3";
+                        nodeList[nodeNum].Attributes["type"].InnerText = "A3";
                         //去掉添加的序号文件前缀100
                         //string tmpName = nodeList[nodeNum].Attributes["name"].InnerText;
                         //nodeList[nodeNum].Attributes["name"].InnerText = tmpName.Trim().Substring(3);
@@ -587,6 +587,9 @@ namespace WinFormFormatQ
                         attrColl.SetNamedItem(newAttr);
 
                         nodeList[nodeNum].Attributes.Append(newAttr);
+
+                        /////////////////////////////
+
                     }
 
                 }
