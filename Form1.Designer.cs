@@ -86,6 +86,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -191,6 +193,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button15);
             this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Controls.Add(this.button4);
@@ -226,11 +229,11 @@
             this.richTextBox1.Size = new System.Drawing.Size(193, 363);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、删除掉答案\n3、替换其中的所有\"为“,<>替换 ＜＞\n4、替换 .为.\n5、选择文件\n6、开始" +
-    "处理1\n7、开始处理2\n8、校验\n\n";
+    "处理1\n7、开始处理2\n8、校验\n重拍序号 是针对有每章有小节形式的题型\n";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(479, 8);
+            this.button4.Location = new System.Drawing.Point(455, 8);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(73, 23);
             this.button4.TabIndex = 4;
@@ -248,7 +251,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(381, 8);
+            this.button3.Location = new System.Drawing.Point(369, 8);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 23);
             this.button3.TabIndex = 2;
@@ -309,6 +312,7 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.button20);
             this.splitContainer4.Panel1.Controls.Add(this.textBox2);
             this.splitContainer4.Panel1.Controls.Add(this.button5);
             this.splitContainer4.Panel1.Controls.Add(this.button7);
@@ -318,7 +322,7 @@
             // 
             this.splitContainer4.Panel2.Controls.Add(this.txtBoxQResult);
             this.splitContainer4.Size = new System.Drawing.Size(581, 369);
-            this.splitContainer4.SplitterDistance = 54;
+            this.splitContainer4.SplitterDistance = 79;
             this.splitContainer4.TabIndex = 0;
             // 
             // textBox2
@@ -330,7 +334,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(500, 14);
+            this.button5.Location = new System.Drawing.Point(499, 15);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(74, 23);
             this.button5.TabIndex = 11;
@@ -363,7 +367,7 @@
             this.txtBoxQResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtBoxQResult.Location = new System.Drawing.Point(0, 0);
             this.txtBoxQResult.Name = "txtBoxQResult";
-            this.txtBoxQResult.Size = new System.Drawing.Size(581, 311);
+            this.txtBoxQResult.Size = new System.Drawing.Size(581, 286);
             this.txtBoxQResult.TabIndex = 10;
             this.txtBoxQResult.Text = "";
             // 
@@ -375,7 +379,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(198, 369);
             this.richTextBox2.TabIndex = 12;
             this.richTextBox2.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、<>替换 ＜＞\n5、选择文件\n6、开" +
-    "始处理1\n7、开始处理2\n8、校验\n\n";
+    "始处理1\n7、开始处理2\n8、校验\n重排序号 是针对有小节的情况 重新排列问题的序号\n\n";
             // 
             // tabPage7
             // 
@@ -468,7 +472,7 @@
             this.richTextBox6.Size = new System.Drawing.Size(259, 369);
             this.richTextBox6.TabIndex = 13;
             this.richTextBox6.Text = "先期处理说明：\n1、word存为unicode类型的txt文本\n2、使每个问题和答案都另起一行\n3、替换其中的所有\"为“\n4、<>替换 ＜＞\n5、选择文件\n6、开" +
-    "始处理1\n7、开始处理2\n8、校验\n整理成 问题在一起   答案在一起的形式\nstr.Contains(\"答案\") 分散的答案 必须存在答案二字";
+    "始处理1\n7、开始处理2\n8、校验\n整理成 问题在一起   答案在一起的形式\nstr.Contains(\"答案\") 分散的答案 必须存在答案二字\n";
             // 
             // tabPage4
             // 
@@ -761,6 +765,26 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(455, 38);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(73, 23);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "重排序号";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(421, 45);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(73, 23);
+            this.button20.TabIndex = 16;
+            this.button20.Text = "重排序号3";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -873,6 +897,8 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button20;
     }
 }
 

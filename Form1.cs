@@ -179,8 +179,14 @@ namespace WinFormFormatQ
                             str = str.Insert(s.Length, ".");
                         }
                     }
+                    //[第几节]
+                    if (Regex.IsMatch(str, @"第[一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    {
+                        //忽略
+                        continue;
+                    }
                     //[第\d章]
-                    if (Regex.IsMatch(str, @"第[\d]+章", RegexOptions.Singleline))
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
                     {
                         if (!string.IsNullOrEmpty(strQ))
                         {
@@ -283,7 +289,7 @@ namespace WinFormFormatQ
                     string str = sr.ReadLine().Trim();
                     str = str.Replace("       ", "________");
                     //[第\d章]
-                    if (Regex.IsMatch(str, @"第[\d]+章", RegexOptions.Singleline) && !str.Contains("答案"))
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline) && !str.Contains("答案"))
                     {
                         str = "$ZJ$" + str;
                     }
@@ -673,12 +679,21 @@ namespace WinFormFormatQ
                 while (sr.Peek() > -1)
                 {
                     string str = sr.ReadLine().Trim();
+                    if (str.Contains("确定患者残存及潜在的能力、确定康复护理目标、评价康复护理疗效"))
+                    {
+                        string strr = str;
+                    }
                     if(string.IsNullOrEmpty(str))
                     {
                         continue;
                     }
                     //[第\d章]
-                    if (Regex.IsMatch(str, @"第[\d]+章", RegexOptions.Singleline) )
+                    if (Regex.IsMatch(str, @"第[一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    {
+                        continue;
+                    }
+                    //[第\d章]
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
                     {
                         sb.Append(sbQ.ToString() + sbA.ToString() + "\r\n");
                         sbQ.Remove(0, sbQ.Length);
@@ -709,6 +724,73 @@ namespace WinFormFormatQ
            this.richTextBox7.Text = sb.ToString();
             
 
+        }
+
+        /// <summary>
+        /// 重新排列选择题序号 针对每章有小节形式的题型
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button15_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(this.txtBoxSelectResult.Text);
+            //<root><data name="专业实务 "><section
+            XmlNodeList nodeList = xmlDoc.SelectNodes(@"root/sectionTitle");
+            // <sectionTitle name="第1章 出入院护理技能 ">
+            //    <testType type="c" name="选择题">
+            //<question name = " 1..对高热患者的观察，不正确的是（ ）" opa = "A．.评估患者的心理状况                   " opb = "B．观察面色有无改变" opc = "C．.观察P、R、BP的变化                 " opd = "D．观察物理降温后的效果" ope = "E．.每日测量体温4次 "/>
+            for (int i = 0; i < nodeList.Count; i++)
+            {
+                XmlNodeList nodeListChild = nodeList[i].SelectNodes(@"testType/question");
+
+                for (int questionCount = 0; questionCount < nodeListChild.Count; questionCount++)
+                {
+                    string strName = nodeListChild[questionCount].Attributes["name"].InnerText.Trim();
+                    string[] arrNameList = strName.Split(new char[] { '.', '．' });
+                    if (Regex.IsMatch(arrNameList[0], string.Format(@"^({0})", arrNameList[0]), RegexOptions.Singleline))
+                    {
+                        //题目ID
+                        int timuNum = questionCount + 1;
+                        arrNameList[0] = timuNum.ToString();
+                    }
+                    strName = string.Join(".", arrNameList);
+                    nodeListChild[questionCount].Attributes["name"].InnerText = strName;
+                }
+            }
+            this.txtBoxSelectResult.Text = xmlDoc.OuterXml;
+
+
+        }
+
+        private void button20_Click_1(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(this.txtBoxQResult.Text);
+            //<root><data name="专业实务 "><section
+            XmlNodeList nodeList = xmlDoc.SelectNodes(@"root/sectionTitle");
+            // <sectionTitle name="第1章 免疫学概述">
+                //<testType type="q" name="练习题">
+                    //<question name="1．______________
+            for (int i = 0; i < nodeList.Count; i++)
+            {
+                XmlNodeList nodeListChild = nodeList[i].SelectNodes(@"testType/question");
+
+                for (int questionCount = 0; questionCount < nodeListChild.Count; questionCount++)
+                {
+                    string strName = nodeListChild[questionCount].Attributes["name"].InnerText.Trim();
+                    string[] arrNameList = strName.Split(new char[] { '.', '．' });
+                    if (Regex.IsMatch(arrNameList[0], string.Format(@"^({0})", arrNameList[0]), RegexOptions.Singleline))
+                    {
+                        //题目ID
+                        int timuNum = questionCount + 1;
+                        arrNameList[0] = timuNum.ToString();
+                    }
+                    strName = string.Join(".", arrNameList);
+                    nodeListChild[questionCount].Attributes["name"].InnerText = strName;
+                }
+            }
+            this.txtBoxQResult.Text = xmlDoc.OuterXml;
         }
     }
 }

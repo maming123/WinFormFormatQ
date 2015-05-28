@@ -180,9 +180,6 @@
 
 </value>
   </data>
-  <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="txtBoxTest1Answer.Text" xml:space="preserve">
     <value>1．B	2．E	3．C	4．B	5．D	6．B	7．C	8．A	9．D	10．D
 11．E	12．C	13．A	14．B	15．A	16．A	17．B	18．D	19．C	20．C
