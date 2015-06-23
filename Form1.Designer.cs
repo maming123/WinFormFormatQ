@@ -36,6 +36,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button15 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -46,6 +47,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.button20 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -86,8 +88,13 @@
             this.button14 = new System.Windows.Forms.Button();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -193,6 +200,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button25);
+            this.tabPage2.Controls.Add(this.button24);
             this.tabPage2.Controls.Add(this.button15);
             this.tabPage2.Controls.Add(this.checkBox1);
             this.tabPage2.Controls.Add(this.richTextBox1);
@@ -209,12 +218,22 @@
             this.tabPage2.Text = "选择题";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(463, 8);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(73, 23);
+            this.button15.TabIndex = 8;
+            this.button15.Text = "重排序号";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(263, 45);
+            this.checkBox1.Location = new System.Drawing.Point(298, 37);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(168, 16);
             this.checkBox1.TabIndex = 7;
@@ -233,7 +252,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(455, 8);
+            this.button4.Location = new System.Drawing.Point(384, 8);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(73, 23);
             this.button4.TabIndex = 4;
@@ -243,15 +262,15 @@
             // 
             // txtBoxSelectResult
             // 
-            this.txtBoxSelectResult.Location = new System.Drawing.Point(6, 67);
+            this.txtBoxSelectResult.Location = new System.Drawing.Point(6, 116);
             this.txtBoxSelectResult.Name = "txtBoxSelectResult";
-            this.txtBoxSelectResult.Size = new System.Drawing.Size(575, 296);
+            this.txtBoxSelectResult.Size = new System.Drawing.Size(575, 247);
             this.txtBoxSelectResult.TabIndex = 3;
             this.txtBoxSelectResult.Text = "";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(369, 8);
+            this.button3.Location = new System.Drawing.Point(298, 8);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(80, 23);
             this.button3.TabIndex = 2;
@@ -263,12 +282,12 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 8);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(241, 21);
+            this.textBox1.Size = new System.Drawing.Size(180, 21);
             this.textBox1.TabIndex = 1;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(263, 8);
+            this.button2.Location = new System.Drawing.Point(192, 8);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 23);
             this.button2.TabIndex = 0;
@@ -312,6 +331,8 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.button23);
+            this.splitContainer4.Panel1.Controls.Add(this.button22);
             this.splitContainer4.Panel1.Controls.Add(this.button20);
             this.splitContainer4.Panel1.Controls.Add(this.textBox2);
             this.splitContainer4.Panel1.Controls.Add(this.button5);
@@ -325,16 +346,26 @@
             this.splitContainer4.SplitterDistance = 79;
             this.splitContainer4.TabIndex = 0;
             // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(500, 16);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(73, 23);
+            this.button20.TabIndex = 16;
+            this.button20.Text = "重排序号3";
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click_1);
+            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(14, 16);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 21);
+            this.textBox2.Size = new System.Drawing.Size(211, 21);
             this.textBox2.TabIndex = 8;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(499, 15);
+            this.button5.Location = new System.Drawing.Point(420, 16);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(74, 23);
             this.button5.TabIndex = 11;
@@ -344,7 +375,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(305, 16);
+            this.button7.Location = new System.Drawing.Point(231, 16);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(107, 23);
             this.button7.TabIndex = 7;
@@ -354,7 +385,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(418, 16);
+            this.button6.Location = new System.Drawing.Point(344, 16);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(76, 23);
             this.button6.TabIndex = 9;
@@ -417,6 +448,7 @@
             // 
             // splitContainer9.Panel1
             // 
+            this.splitContainer9.Panel1.Controls.Add(this.button21);
             this.splitContainer9.Panel1.Controls.Add(this.textBox3);
             this.splitContainer9.Panel1.Controls.Add(this.button16);
             this.splitContainer9.Panel1.Controls.Add(this.button17);
@@ -587,7 +619,7 @@
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(783, 369);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "试卷一（处理摘出的题干）";
+            this.tabPage5.Text = "试卷一或选择题（处理摘出的题干）";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // splitContainer5
@@ -616,6 +648,8 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.button27);
+            this.splitContainer6.Panel1.Controls.Add(this.button26);
             this.splitContainer6.Panel1.Controls.Add(this.button19);
             this.splitContainer6.Panel1.Controls.Add(this.button18);
             this.splitContainer6.Panel1.Controls.Add(this.txtBoxTest1TiGan);
@@ -627,14 +661,14 @@
             // 
             this.splitContainer6.Panel2.Controls.Add(this.txtBoxTest1TiGanResult);
             this.splitContainer6.Size = new System.Drawing.Size(549, 369);
-            this.splitContainer6.SplitterDistance = 88;
+            this.splitContainer6.SplitterDistance = 120;
             this.splitContainer6.TabIndex = 0;
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(426, 49);
+            this.button19.Location = new System.Drawing.Point(403, 49);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(115, 23);
+            this.button19.Size = new System.Drawing.Size(122, 23);
             this.button19.TabIndex = 21;
             this.button19.Text = "3、插入后排序";
             this.button19.UseVisualStyleBackColor = true;
@@ -642,11 +676,11 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(290, 49);
+            this.button18.Location = new System.Drawing.Point(199, 49);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(130, 23);
+            this.button18.Size = new System.Drawing.Size(184, 23);
             this.button18.TabIndex = 20;
-            this.button18.Text = "2、插入选择题一中";
+            this.button18.Text = "2、不带节点插入选择题一中";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
@@ -692,7 +726,7 @@
             this.txtBoxTest1TiGanResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtBoxTest1TiGanResult.Location = new System.Drawing.Point(0, 0);
             this.txtBoxTest1TiGanResult.Name = "txtBoxTest1TiGanResult";
-            this.txtBoxTest1TiGanResult.Size = new System.Drawing.Size(549, 277);
+            this.txtBoxTest1TiGanResult.Size = new System.Drawing.Size(549, 245);
             this.txtBoxTest1TiGanResult.TabIndex = 12;
             this.txtBoxTest1TiGanResult.Text = "";
             // 
@@ -765,25 +799,75 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button15
+            // button21
             // 
-            this.button15.Location = new System.Drawing.Point(455, 38);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(73, 23);
-            this.button15.TabIndex = 8;
-            this.button15.Text = "重排序号";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.button21.Location = new System.Drawing.Point(355, 39);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(134, 23);
+            this.button21.TabIndex = 15;
+            this.button21.Text = "开始处理(带节点)";
+            this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
-            // button20
+            // button22
             // 
-            this.button20.Location = new System.Drawing.Point(421, 45);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(73, 23);
-            this.button20.TabIndex = 16;
-            this.button20.Text = "重排序号3";
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click_1);
+            this.button22.Location = new System.Drawing.Point(341, 45);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(79, 23);
+            this.button22.TabIndex = 17;
+            this.button22.Text = "带节点处理1";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // button23
+            // 
+            this.button23.Location = new System.Drawing.Point(420, 45);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(84, 23);
+            this.button23.TabIndex = 18;
+            this.button23.Text = "带节点处理2";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
+            // button24
+            // 
+            this.button24.Location = new System.Drawing.Point(298, 59);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(80, 23);
+            this.button24.TabIndex = 9;
+            this.button24.Text = "带节点处理1";
+            this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button24_Click);
+            // 
+            // button25
+            // 
+            this.button25.Location = new System.Drawing.Point(384, 59);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(82, 23);
+            this.button25.TabIndex = 10;
+            this.button25.Text = "带节点处理2";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button26
+            // 
+            this.button26.Location = new System.Drawing.Point(199, 78);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(184, 23);
+            this.button26.TabIndex = 22;
+            this.button26.Text = "2、带节点插入选择题一中";
+            this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
+            // 
+            // button27
+            // 
+            this.button27.Location = new System.Drawing.Point(403, 78);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(133, 23);
+            this.button27.TabIndex = 23;
+            this.button27.Text = "3、带节点插入后排序";
+            this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // Form1
             // 
@@ -899,6 +983,13 @@
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
     }
 }
 

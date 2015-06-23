@@ -119,7 +119,7 @@
   </resheader>
   <data name="txtBoxOrign.Text" xml:space="preserve">
     <value>第1章 免疫学概述
-
+第一节
 [1] 免疫的概念
 机体识别
 和排除抗原物质
@@ -131,10 +131,18 @@
 ③免疫监视
 [3] 免疫对机体具有双重性
 即功能正常时其结果对机体有利，功能异常时其结果对机体有害。
-[4] 牛痘苗的发明者？预防的疾病种类
-英国乡村医生Jenner（琴纳）
-，防治天花
-。预防天花。
+
+第二节
+[1] 免疫的概念
+机体识别
+和排除抗原物质
+，维持自身平衡
+与稳定的一种生理功能。
+[2] 免疫的三大功能
+①免疫防御；
+②免疫稳定；
+③免疫监视
+
 
 第2章 抗原
 
@@ -154,7 +162,12 @@
 存在于不同种属生物（人、动物、微生物）之间的共同抗原，称为异嗜性抗原
 [8] 早期发现和诊断原发性肝癌的免疫学指标
 甲胎蛋白（AFP）
-是早期发现和诊断原发性肝癌的标记物</value>
+是早期发现和诊断原发性肝癌的标记物
+
+
+
+
+</value>
   </data>
   <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -180,6 +193,9 @@
 
 </value>
   </data>
+  <metadata name="splitContainer3.Locked" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="txtBoxTest1Answer.Text" xml:space="preserve">
     <value>1．B	2．E	3．C	4．B	5．D	6．B	7．C	8．A	9．D	10．D
 11．E	12．C	13．A	14．B	15．A	16．A	17．B	18．D	19．C	20．C

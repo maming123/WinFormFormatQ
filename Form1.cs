@@ -32,32 +32,54 @@ namespace WinFormFormatQ
 
             for (int i = 1; i < arr.Length; i++)
             {
-                if (Regex.IsMatch(arr[i], @"第[\d]+章", RegexOptions.Singleline))
+                if (Regex.IsMatch(arr[i], @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
                 {
-                    if (Regex.IsMatch(sb.ToString(), @"第[\d]+章", RegexOptions.Singleline))
+                    if (Regex.IsMatch(sb.ToString(), @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
                     {
-                        sb.AppendFormat(@"""/></sectionTitle>");
+                        if (Regex.IsMatch(sb.ToString(), @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+                        {
+                            sb.AppendFormat(@"""/></partTitle></sectionTitle>");
+                        }
+                        else
+                        {
+                            sb.AppendFormat(@"""/></sectionTitle>");
+                        }
                     }
                     sb.AppendFormat(@"<sectionTitle name=""{0}"">", arr[i]);
                 }
                 else if (arr[i].Contains("[") && arr[i].Contains("]"))
                 {
                     if (sb.ToString().Contains("[") && sb.ToString().Contains("[")
-                        && !(Regex.IsMatch(arr[i-1], @"第[\d]+章", RegexOptions.Singleline)))
+                        && !(Regex.IsMatch(arr[i - 1], @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
+                        && !(Regex.IsMatch(arr[i - 1], @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline)))
                     {
                         sb.AppendFormat(@"""/>");
                     }
                     sb.AppendFormat(@"<point question = ""{0}"" answer = """, arr[i]);
                 }
+                else if (Regex.IsMatch(arr[i], @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+                {
+                    if (Regex.IsMatch(sb.ToString(), @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    {
+                        sb.AppendFormat(@"""/></partTitle>");
+                    }
+                    sb.AppendFormat(@"<partTitle name=""{0}"">", arr[i]);  
+                }
                 else
                 {
-                    sb.AppendFormat(@" {0} ", arr[i]);
+                     sb.AppendFormat(@" {0} ", arr[i]);
                 }
             }
-
-            sb.AppendFormat(@"""/></sectionTitle>");
+            if (Regex.IsMatch(sb.ToString(), @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+            {
+                sb.AppendFormat(@"""/></partTitle></sectionTitle>");
+            }
+            else
+            {
+                sb.AppendFormat(@"""/></sectionTitle>");
+            }
             sb.Append("</root>");
-            this.txtBoxC1.Text = sb.ToString();
+            this.txtBoxC1.Text = sb.ToString().Replace("\">\"/></partTitle>", "\">");
         }
 
         private static string[] GetArrZhiShiDian(string str)
@@ -106,10 +128,20 @@ namespace WinFormFormatQ
                     //listOrig.Remove(m);
 
                 }
+                else if (m.Contains("第") && m.Contains("节"))
+                {
+                    if (strtmp != "")
+                    {
+                        listNew.Add("\\n" + strtmp);
+                        strtmp = "";
+                    }
+
+                    listNew.Add(m);
+                    //listOrig.Remove(m);
+                }
                 else
                 {
-                    strtmp += "\\n" + m + " ";
-                    //listOrig.Remove(m);
+                     strtmp += "\\n" + m + " ";
                 }
 
             });
@@ -653,6 +685,7 @@ namespace WinFormFormatQ
         private void button17_Click(object sender, EventArgs e)
         {
             //            第1章  绪 论
+            // 第一节 呼吸系统常见症状体征及护理
             //1．儿科护理的护理特点分为       、      、       、        、      、      。
             //答案：沟通评估难、观察责任重、工作内容广、操作难度高、安全措施细、关怀照料勤
             //2．儿科护理学的任务？
@@ -688,7 +721,7 @@ namespace WinFormFormatQ
                         continue;
                     }
                     //[第\d章]
-                    if (Regex.IsMatch(str, @"第[一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
                     {
                         continue;
                     }
@@ -791,6 +824,374 @@ namespace WinFormFormatQ
                 }
             }
             this.txtBoxQResult.Text = xmlDoc.OuterXml;
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            //            第1章  绪 论
+            // 第一节 呼吸系统常见症状体征及护理
+            //1．儿科护理的护理特点分为       、      、       、        、      、      。
+            //答案：沟通评估难、观察责任重、工作内容广、操作难度高、安全措施细、关怀照料勤
+            //2．儿科护理学的任务？
+            //答案：儿科护理的任务是根据小儿的生长发育、儿童保健、疾病防治的规范，运用护理专业理论和技术，提供“以小儿及其家庭为中心”的全方位整体护理，增强儿童体质，降低小儿发病率和病死率，保障和促进小儿身心健康。
+            //整理成 
+            /******
+             * 练习题
+             * 1．儿科护理的护理特点分为       、      、       、        、      、      。
+             * 2．儿科护理学的任务？
+             * 答案
+             * 1.沟通评估难、观察责任重、工作内容广、操作难度高、安全措施细、关怀照料勤
+             * 2.儿科护理的任务是根据小儿的生长发育、儿童保健、疾病防治的规范，运用护理专业理论和技术，提供“以小儿及其家庭为中心”的全方位整体护理，增强儿童体质，降低小儿发病率和病死率，保障和促进小儿身心健康。
+             * ****/
+
+            StringBuilder sb = new StringBuilder();
+            List<string> listOrig = new List<string>();
+            //问题
+            StringBuilder sbQ = new StringBuilder();
+            //答案
+            StringBuilder sbA = new StringBuilder();
+            using (StreamReader sr = new StreamReader(this.textBox3.Text.Trim()))
+            {
+                int strANum = 0;
+                while (sr.Peek() > -1)
+                {
+                    string str = sr.ReadLine().Trim();
+                    if (str.Contains("确定患者残存及潜在的能力、确定康复护理目标、评价康复护理疗效"))
+                    {
+                        string strr = str;
+                    }
+                    if (string.IsNullOrEmpty(str))
+                    {
+                        continue;
+                    }
+                    //[第\d节]
+                    
+                    //[第\d章]
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
+                    {
+                        sb.Append(sbQ.ToString() + sbA.ToString() + "\r\n");
+                        sbQ.Remove(0, sbQ.Length);
+                        sbA.Remove(0, sbA.Length);
+                        strANum = 0;
+
+                        sbQ.AppendLine(str + "\r\n");
+                        
+                    }
+                    else if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    {
+                        sb.Append(sbQ.ToString() + sbA.ToString() + "\r\n");
+                        sbQ.Remove(0, sbQ.Length);
+                        sbA.Remove(0, sbA.Length);
+                        strANum = 0;
+
+                        sbQ.AppendLine(str + "\r\n");
+                        sbQ.AppendLine("练习题\r\n");
+                    }
+                    else if (str.Contains("答案"))
+                    {
+                        if (sbA.Length == 0)
+                        {
+                            sbA.AppendLine("答案");
+                        }
+                        strANum++;
+                        sbA.AppendLine(strANum.ToString() + ". " + str + "\r\n");
+                    }
+                    else
+                    {
+                        sbQ.AppendLine(str + "\r\n");
+                    }
+                }
+                sb.Append(sbQ.ToString() + sbA.ToString() + "\r\n");
+
+            }
+
+            this.richTextBox7.Text = sb.ToString();
+            
+
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            List<string> listOrig = new List<string>();
+
+            using (StreamReader sr = new StreamReader(this.textBox2.Text.Trim()))
+            {
+                while (sr.Peek() > -1)
+                {
+                    string str = sr.ReadLine().Trim();
+                    str = str.Replace("       ", "________");
+                    //[第\d章]
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline) && !str.Contains("答案"))
+                    {
+                        str = "$ZJ$" + str;
+                    }
+                    else if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline) && !str.Contains("答案"))
+                    {
+                        str = "$JD$" + str;
+                    }
+                    else
+                    {
+                        str = "$TM$" + str;
+                    }
+                    listOrig.Add(str);
+                }
+            }
+            listOrig.ForEach(m =>
+            {
+                this.txtBoxQResult.Text += m + "\n";
+            }
+            );
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            string str = this.txtBoxQResult.Text.Trim().Replace("\n", "");
+            string[] arr = str.Split(new string[] { "$ZJ$" }, StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder sbAll = new StringBuilder();
+            sbAll.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?><root>");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                //章节
+                string[] arrZhang = arr[i].Split(new string[] { "$JD$" }, StringSplitOptions.RemoveEmptyEntries);
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat(@"<sectionTitle name=""{0}"">", arrZhang[0]);
+
+                string strtmp = "";
+                for (int jiedianNum = 1; jiedianNum < arrZhang.Length; jiedianNum++)
+                {
+                    string[] arrJie = arrZhang[jiedianNum].Split(new string[] { "$TM$" }, StringSplitOptions.RemoveEmptyEntries);
+                    StringBuilder sbJie = new StringBuilder();
+                    sbJie.AppendFormat(@"<partTitle name=""{0}"">", arrJie[0]);
+
+                    for (int timuNum = 1; timuNum < arrJie.Length;timuNum++)
+                    {
+                       //每章
+                        //<partTitle name="第一节 这是第一节啊">
+                        //<testType type="q" name="练习题">
+                        //    <question name = "1．_________________________________________，称为现代免疫的概念。" />
+                        //    <question name="2._______、_______和_______，称为免疫的三大功能。"/>
+                        //</testType>
+                        //<testType type="a" name="第1章_参考答案">
+                        //    <answer name="1．机体识别和排除抗原物质，维持自身平衡与稳定的一种生理功能"/>
+                        //    <answer name="2．免疫防御 免疫稳定 免疫监视"/>
+                        //</testType>
+                        //</partTitle>
+
+                        if (arrJie[timuNum].Contains("练习题") && !arrJie[timuNum].Contains("答案"))
+                        {
+                            sbJie.AppendFormat(@"<testType type=""q"" name=""{0}"">", arrJie[timuNum]);
+                            strtmp = "question";
+                        }
+                        else if (arrJie[timuNum].Contains("答案") && arrJie[timuNum].IndexOf("答案") == 0)
+                        {
+                            sbJie.AppendFormat(@"</testType>");
+                            sbJie.AppendFormat(@"<testType type=""a"" name=""{0}"">", arrJie[timuNum]);
+                            strtmp = "answer";
+                        }
+                        else
+                        {
+                            sbJie.AppendFormat(@"<{0} name=""{1}""/>", strtmp, arrJie[timuNum]);
+                        }
+                    }
+                    sbJie.AppendFormat(@"</testType>");
+                    sbJie.AppendFormat(@"</partTitle>");
+                    sb.Append(sbJie.ToString());
+                }
+                sb.AppendFormat(@"</sectionTitle>");
+                sbAll.Append(sb.ToString());
+            }
+            sbAll.Append("</root>");
+            this.txtBoxQResult.Text = sbAll.ToString().Replace("$TM$$TM$","");
+
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            List<string> listOrig = new List<string>();
+
+            string strQ = "";
+            using (StreamReader sr = new StreamReader(this.textBox1.Text.Trim()))
+            {
+                while (sr.Peek() > -1)
+                {
+                    string str = sr.ReadLine().Trim();
+                    if (!this.checkBox1.Checked)
+                    {
+                        if (!string.IsNullOrEmpty(str) && "ABCDEFGHIＡＢＣＤＥＦＧＨＩ".Contains(str.Substring(0, 1)))
+                        {
+                            str = str.Insert(1, ".");
+                        }
+                        if (!string.IsNullOrEmpty(str) && Regex.IsMatch(str, @"^[\d]+", RegexOptions.Singleline))
+                        {
+                            string s = Regex.Match(str, @"^[\d]+").Value;
+                            str = str.Insert(s.Length, ".");
+                        }
+                    }
+                   
+                    //[第\d章]
+                    if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+章", RegexOptions.Singleline))
+                    {
+                        if (!string.IsNullOrEmpty(strQ))
+                        {
+                            listOrig.Add(strQ);
+                        }
+                        listOrig.Add("$ZJ$" + str);
+                        strQ = "";
+
+                    }
+                    else if (Regex.IsMatch(str, @"第[\d一二三四五六七八九十]+节", RegexOptions.Singleline))
+                    {   //[第几节]
+                        if (!string.IsNullOrEmpty(strQ))
+                        {
+                            listOrig.Add(strQ);
+                        }
+                        listOrig.Add("$JD$" + str);
+                        strQ = "";
+                    }
+
+                    if (Regex.IsMatch(str, @"^[\d]+[．.]", RegexOptions.Singleline))
+                    {
+                        listOrig.Add(strQ);
+                        strQ = " $TM$ " + str;
+                    }
+                    else if (Regex.IsMatch(str, @"[ABCDEFGHIＡＢＣＤＥＦＧＨＩ][ 　．.]+", RegexOptions.Singleline))
+                    {
+                        //经过以下替换 把 字母 A.A．Ａ．Ａ. 替换成$TAB$A．
+                        str = str.Replace("A．", "$TAB$A．").Replace("B．", "$TAB$B．").Replace("C．", "$TAB$C．").Replace("D．", "$TAB$D．").Replace("E．", "$TAB$E．").Replace("F．", "$TAB$F．").Replace("G．", "$TAB$G．").Replace("H．", "$TAB$H．").Replace("I．", "$TAB$I．").Replace("Ａ．", "$TAB$A．").Replace("Ｂ．", "$TAB$B．").Replace("Ｃ．", "$TAB$C．").Replace("Ｄ．", "$TAB$D．").Replace("Ｅ．", "$TAB$E．").Replace("Ｆ．", "$TAB$F．").Replace("Ｇ．", "$TAB$G．").Replace("Ｈ．", "$TAB$H．").Replace("Ｉ．", "$TAB$I．").Replace("A ．", "$TAB$A．").Replace("B ．", "$TAB$B．").Replace("C ．", "$TAB$C．").Replace("D ．", "$TAB$D．").Replace("E ．", "$TAB$E．").Replace("F ．", "$TAB$F．").Replace("G ．", "$TAB$G．").Replace("H ．", "$TAB$H．").Replace("I ．", "$TAB$I．");
+
+                        str = str.Replace("A.", "$TAB$A．").Replace("B.", "$TAB$B．").Replace("C.", "$TAB$C．").Replace("D.", "$TAB$D．").Replace("E.", "$TAB$E．").Replace("F.", "$TAB$F．").Replace("G.", "$TAB$G．").Replace("H.", "$TAB$H．").Replace("I.", "$TAB$I．").Replace("Ａ.", "$TAB$A．").Replace("Ｂ.", "$TAB$B．").Replace("Ｃ.", "$TAB$C．").Replace("Ｄ.", "$TAB$D．").Replace("Ｅ.", "$TAB$E．").Replace("Ｆ.", "$TAB$F．").Replace("Ｇ.", "$TAB$G．").Replace("Ｈ.", "$TAB$H．").Replace("Ｉ.", "$TAB$I．");
+
+                        strQ += str;
+                    }
+                }
+            }
+            listOrig.Add(strQ);
+            listOrig.ForEach(m =>
+            {
+                this.txtBoxSelectResult.Text += m + "\n";
+            }
+            );
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            string str = this.txtBoxSelectResult.Text.Trim().Replace("\n", "");
+            string[] arr = str.Split(new string[] { "$ZJ$" }, StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder sbAll = new StringBuilder();
+            sbAll.Append("<?xml version=\"1.0\" encoding=\"utf-8\" ?><root>");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string[] arrZhang = arr[i].Split(new string[] { "$JD$" }, StringSplitOptions.RemoveEmptyEntries);
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat(@"<sectionTitle name=""{0}"">", arrZhang[0]);
+                
+                for (int jiedianNum = 1; jiedianNum < arrZhang.Length; jiedianNum++)
+                {
+                    //节点
+                    string[] arrJie = arrZhang[jiedianNum].Split(new string[] { "$TM$" }, StringSplitOptions.RemoveEmptyEntries);
+                    StringBuilder sbJie = new StringBuilder();
+                    sbJie.AppendFormat(@"<partTitle name=""{0}"">", arrJie[0]);
+                    sbJie.AppendFormat(@"<testType type=""c"" name=""选择题"">");
+                    for (int timuNum = 1; timuNum < arrZhang.Length; timuNum++)
+                    { //每章
+                        //<question name = "3．免疫对机体是（ ）" opa = "A．有害的" opb = "B．有利的" opc = "C．有利也有害" opd = "D．有利无害" ope = "E．正常条件下有利，异常条件下有害" />
+                        string strtmp = arrJie[timuNum].Replace("$TAB$A．", "\" opa = \"A．").Replace("$TAB$B．", "\" opb = \"B．").Replace("$TAB$C．", "\" opc = \"C．").Replace("$TAB$D．", "\" opd = \"D．").Replace("$TAB$E．", "\" ope = \"E．").Replace("$TAB$F．", "\" opf = \"F．").Replace("$TAB$G．", "\" opg = \"G．").Replace("$TAB$H．", "\" oph = \"H．").Replace("$TAB$I．", "\" opi = \"I．");
+                        sbJie.AppendFormat(@"<question  type=""A1"" name = ""{0}""/>", strtmp);
+                    }
+                    sbJie.AppendFormat(@"</testType>");
+                    sbJie.AppendFormat(@"</partTitle>");
+                    sb.Append(sbJie.ToString());
+
+                }
+                sb.AppendFormat(@"</sectionTitle>");
+                sbAll.Append(sb.ToString());
+            }
+            sbAll.Append("</root>");
+            this.txtBoxSelectResult.Text = sbAll.ToString();
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            //从选择题 中的tab页面获取xml
+            xmlDoc.LoadXml(this.txtBoxSelectResult.Text);
+            //<root><data name="专业实务 "><section
+            XmlNodeList nodeList = xmlDoc.SelectNodes(@"root/sectionTitle/partTitle/testType/question");
+            //      <question  type="A1" name = " 1．导致患者内源性感染的因素包括" opa = "A．医院内分布有大量的病原体" opb = "B．长期大量滥用抗生素" opc = "C．腹腔穿刺" opd = "D．消毒隔离措施不到位" ope = "E．医疗器械污染 "/>
+
+            string str = this.txtBoxTest1TiGanResult.Text.Trim().Replace("\n", "");
+            string[] arr = str.Split(new string[] { "$TM$" }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                //多选题的题干
+                int tiganNum = Convert.ToInt32(arr[i].Split(new char[] { '.' })[0]);
+                for (int nodeNum = 0; nodeNum < nodeList.Count; nodeNum++)
+                {
+                    string strName = nodeList[nodeNum].Attributes["name"].InnerText.Trim();
+                    if (Regex.IsMatch(strName, string.Format(@"^({0})[．.]", tiganNum), RegexOptions.Singleline))
+                    {
+                        nodeList[nodeNum].Attributes["type"].InnerText = "A3";
+                        //去掉添加的序号文件前缀100
+                        //string tmpName = nodeList[nodeNum].Attributes["name"].InnerText;
+                        //nodeList[nodeNum].Attributes["name"].InnerText = tmpName.Trim().Substring(3);
+                        //Create a new attribute.
+                        XmlAttribute newAttr = xmlDoc.CreateAttribute("shareName");
+                        newAttr.Value = arr[i].Replace(tiganNum.ToString() + ".", "");
+
+                        //Create an attribute collection and add the new attribute 
+                        //to the collection.
+                        XmlAttributeCollection attrColl = xmlDoc.DocumentElement.Attributes;
+                        attrColl.SetNamedItem(newAttr);
+
+                        nodeList[nodeNum].Attributes.Append(newAttr);
+
+                        /////////////////////////////
+
+                    }
+
+                }
+            }
+            this.txtBoxTest1TiGanResult.Text = xmlDoc.OuterXml;
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(this.txtBoxTest1TiGanResult.Text);
+            //<root><data name="专业实务 "><section
+            XmlNodeList nodeList = xmlDoc.SelectNodes(@"root/sectionTitle");
+            // <sectionTitle name="第1章 出入院护理技能 ">
+            //    <testType type="c" name="选择题">
+            //<question name = " 1..对高热患者的观察，不正确的是（ ）" opa = "A．.评估患者的心理状况                   " opb = "B．观察面色有无改变" opc = "C．.观察P、R、BP的变化                 " opd = "D．观察物理降温后的效果" ope = "E．.每日测量体温4次 "/>
+            for (int i = 0; i < nodeList.Count; i++)
+            {
+                XmlNodeList nodeListChild = nodeList[i].SelectNodes(@"partTitle");
+
+                for (int partCount = 0; partCount < nodeListChild.Count; partCount++)
+                {
+                    XmlNodeList nodeListChildChild = nodeListChild[i].SelectNodes(@"testType/question");
+                    for (int questionCount = 0; questionCount < nodeListChildChild.Count; questionCount++)
+                    {
+                        string strName = nodeListChildChild[questionCount].Attributes["name"].InnerText.Trim();
+                        string[] arrNameList = strName.Split(new char[] { '.', '．' });
+                        if (Regex.IsMatch(arrNameList[0], string.Format(@"^({0})", arrNameList[0]), RegexOptions.Singleline))
+                        {
+                            //题目ID
+                            int timuNum = questionCount + 1;
+                            arrNameList[0] = timuNum.ToString();
+                        }
+                        strName = string.Join(".", arrNameList);
+                        nodeListChildChild[questionCount].Attributes["name"].InnerText = strName;
+                    }
+                }
+                    
+            }
+            this.txtBoxTest1TiGanResult.Text = xmlDoc.OuterXml;
+
+
         }
     }
 }
