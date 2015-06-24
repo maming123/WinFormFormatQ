@@ -1094,7 +1094,7 @@ namespace WinFormFormatQ
                     StringBuilder sbJie = new StringBuilder();
                     sbJie.AppendFormat(@"<partTitle name=""{0}"">", arrJie[0]);
                     sbJie.AppendFormat(@"<testType type=""c"" name=""选择题"">");
-                    for (int timuNum = 1; timuNum < arrZhang.Length; timuNum++)
+                    for (int timuNum = 1; timuNum < arrJie.Length; timuNum++)
                     { //每章
                         //<question name = "3．免疫对机体是（ ）" opa = "A．有害的" opb = "B．有利的" opc = "C．有利也有害" opd = "D．有利无害" ope = "E．正常条件下有利，异常条件下有害" />
                         string strtmp = arrJie[timuNum].Replace("$TAB$A．", "\" opa = \"A．").Replace("$TAB$B．", "\" opb = \"B．").Replace("$TAB$C．", "\" opc = \"C．").Replace("$TAB$D．", "\" opd = \"D．").Replace("$TAB$E．", "\" ope = \"E．").Replace("$TAB$F．", "\" opf = \"F．").Replace("$TAB$G．", "\" opg = \"G．").Replace("$TAB$H．", "\" oph = \"H．").Replace("$TAB$I．", "\" opi = \"I．");
@@ -1172,7 +1172,7 @@ namespace WinFormFormatQ
 
                 for (int partCount = 0; partCount < nodeListChild.Count; partCount++)
                 {
-                    XmlNodeList nodeListChildChild = nodeListChild[i].SelectNodes(@"testType/question");
+                    XmlNodeList nodeListChildChild = nodeListChild[partCount].SelectNodes(@"testType/question");
                     for (int questionCount = 0; questionCount < nodeListChildChild.Count; questionCount++)
                     {
                         string strName = nodeListChildChild[questionCount].Attributes["name"].InnerText.Trim();
