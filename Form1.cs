@@ -1193,5 +1193,46 @@ namespace WinFormFormatQ
 
 
         }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            string str = txtTiGanOrig.Text.Trim();
+            string[] arr = str.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            List<string> list = new List<string>();
+            for(int i=0;i<arr.Length;i++)
+            {
+                if (arr[i].Contains("答案") || arr[i].Contains("共用题干") || "ABCDE".Contains(arr[i].Split('.')[0]))
+                {
+                    continue;
+                }
+                else
+                {
+                    list.Add(arr[i]);
+                }
+            }
+            /****
+             * xxxxxx
+             * 101010.xxx
+             * 101011.xxxx
+             * ****/
+             string strtimu = "";
+             StringBuilder sb = new StringBuilder();
+             for(int i=0;i<list.Count;i++)
+             {
+                 string[] arrtmp = list[i].Split('.');
+                 int r = 0;
+                 if (arrtmp.Length > 1 && int.TryParse(arrtmp[0], out r))
+                 {
+                     //是数字
+                     sb.AppendLine(string.Format(@"{0}.{1}", arrtmp[0], strtimu));
+                 }
+                 else
+                 {
+                     //是题目
+                     strtimu = list[i];
+                 }
+             }
+             this.txtTiGanResult.Text = sb.ToString();
+        }
     }
 }
